@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Estilos -->
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="./script.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <!--maps script-->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+        <!-- title -->
+         <title>Mapa del delito</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Nombre usuario</h3>
+                </div>
+    
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tipos de busqueda</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="#">Por tipo de delito</a>
+                            </li>
+                            <li>
+                                <a href="#">Por fecha</a>
+                            </li>
+                            <li>
+                                <a href="#">Por ubicación</a>
+                            </li>
+                        </ul>
+                     <li>
+                        <a href="#">Números útiles</a>
+                    </li>
+                    <li>
+                        <a href="#">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="#">Ayuda</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Page Content Holder -->
+            <div id="content">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+    
+                        <button icon="" type="button" id="sidebarCollapse" class="navbar-btn">
+                            <!-- <i class="fas fa-bars"></i> -->
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-align-justify"></i>
+                        </button>
+    
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Perfil usuario</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Nuevo delito</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Contenedor mapa -->
+                <div id='map' style='width: 1100px; height: 550px;'>
+                </div>
+                <div class="container-fluid">
+                        <footer id= "footer" class="page-footer font-small pt-4">
+                              <div class="container-fluid text-center text-md-left">
+                              <div class="row">
+                                  <div class="col-md-6 mt-md-0 mt-3">
+                                  <h5 class="text-uppercase">Footer Content</h5>
+                                  <p>Agregar datos del footer</p>
+                                  </div>
+                                  <hr class="clearfix w-100 d-md-none pb-3">
+                                  <div class="col-md-3 mb-md-0 mb-3">
+                                  <ul class="list-unstyled">
+                                    <li>
+                                      <a href="#!">instagram</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!">facebook</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!">Twitter</a>
+                                    </li>
+                                  </ul>
+                                  </div>
+                              </div>                       
+                          </footer>
+                    </div>
+            </div>
+        </div>
+    </body>
+</html>
