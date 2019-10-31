@@ -19,136 +19,116 @@ $(document).ready(function () {
       },
       trackUserLocation: true
     }));
-    // var size = 100;
-    //                     var zoomThreshold = 4;
- 
-    //                     var pulsingDot = {
-    //                     width: size,
-    //                     height: size,
-    //                     data: new Uint8Array(size * size * 4),
-                        
-    //                     onAdd: function() {
-    //                     var canvas = document.createElement('canvas');
-    //                     canvas.width = this.width;
-    //                     canvas.height = this.height;
-    //                     this.context = canvas.getContext('2d');
-    //                     },
-                        
-    //                     render: function() {
-    //                     var duration = 1000;
-    //                     var t = (performance.now() % duration) / duration;
-                        
-    //                     var radius = size / 2 * 0.3;
-    //                     var outerRadius = size / 2 * 0.7 * t + radius;
-    //                     var context = this.context;
-                        
-    //                     // draw outer circle
-    //                     context.clearRect(0, 0, this.width, this.height);
-    //                     context.beginPath();
-    //                     context.arc(this.width / 2, this.height / 2, outerRadius, 0, Math.PI * 2);
-    //                     context.fillStyle = 'rgba(255, 200, 200,' + (1 - t) + ')';
-    //                     context.fill();
-                        
-    //                     // draw inner circle
-    //                     context.beginPath();
-    //                     context.arc(this.width / 2, this.height / 2, radius, 0, Math.PI * 2);
-    //                     context.fillStyle = 'rgba(255, 100, 100, 1)';
-    //                     context.strokeStyle = 'white';
-    //                     context.lineWidth = 2 + 4 * (1 - t);
-    //                     context.fill();
-    //                     context.stroke();
-                        
-    //                     // update this image's data with data from the canvas
-    //                     this.data = context.getImageData(0, 0, this.width, this.height).data;
-                        
-    //                     // keep the map repainting
-    //                     map.triggerRepaint();
-                        
-    //                     // return `true` to let the map know that the image was updated
-    //                     return true;
-    //                     }
-    //                     };
-                        
-    //                     map.on('load', function () {
-    //                       map.addSource('population', {
-    //                     'type': 'vector',
-    //                     'url': 'mapbox://mapbox.660ui7x6'
-    //                     });
-    //                     map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
-                        
-    //                     map.addLayer({
-    //                     "id": "points",
-    //                     "type": "symbol",
-    //                     "source": {
-    //                     "type": "geojson",
-    //                     "data": {
-    //                     "type": "FeatureCollection",
-    //                     "features": [{
-    //                     "type": "Feature",
-    //                     "geometry": {
-    //                     "type": "Point",
-    //                     "coordinates": [0, 0]
-    //                     }
-    //                     }]
-    //                     }
-    //                     },
-    //                     "layout": {
-    //                     "icon-image": "pulsing-dot"
-    //                     }
-    //                     });
-    //                     map.addLayer({
-    //                       'id': 'state-population',
-    //                       'source': 'population',
-    //                       'source-layer': 'state_county_population_2014_cen',
-    //                       'maxzoom': zoomThreshold,
-    //                       'type': 'fill',
-    //                       'filter': ['==', 'isState', true],
-    //                       'paint': {
-    //                       'fill-color': [
-    //                       'interpolate',
-    //                       ['linear'],
-    //                       ['get', 'population'],
-    //                       0, '#F2F12D',
-    //                       500000, '#EED322',
-    //                       750000, '#E6B71E',
-                        
-    //                       ],
-    //                       'fill-opacity': 0.75
-    //                       }
-    //                       }, 'waterway-label');
-                          
-    //                       map.addLayer({
-    //                       'id': 'county-population',
-    //                       'source': 'population',
-    //                       'source-layer': 'state_county_population_2014_cen',
-    //                       'minzoom': zoomThreshold,
-    //                       'type': 'fill',
-    //                       'filter': ['==', 'isCounty', true],
-    //                       'paint': {
-    //                       'fill-color': [
-    //                       'interpolate',
-    //                       ['linear'],
-    //                       ['get', 'population'],
-    //                       0, '#F2F12D',
-    //                       100, '#EED322',
-    //                       1000, '#E6B71E',
-    //                       ],
-    //                       'fill-opacity': 0.75
-    //                       }
-    //                       }, 'waterway-label');
-                          
-    //                       });
-                          
-    //                       var stateLegendEl = document.getElementById('state-legend');
-    //                       var countyLegendEl = document.getElementById('county-legend');
-    //                       map.on('zoom', function() {
-    //                       if (map.getZoom() > zoomThreshold) {
-    //                       stateLegendEl.style.display = 'none';
-    //                       countyLegendEl.style.display = 'block';
-    //                       } else {
-    //                       stateLegendEl.style.display = 'block';
-    //                       countyLegendEl.style.display = 'none';
-    //                       }
-    //                       });
-                          
+    map.on('load', function() {
+      
+      map.addSource('earthquakes', {
+      "type": "geojson",
+      "data": "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"
+      });
+       
+      map.addLayer({
+      "id": "earthquakes-heat",
+      "type": "heatmap",
+      "source": "earthquakes",
+      "maxzoom": 9,
+      "paint": {
+
+      "heatmap-weight": [
+      "interpolate",
+      ["linear"],
+      ["get", "mag"],
+      0, 0,
+      6, 1
+      ],
+      
+
+      "heatmap-intensity": [
+      "interpolate",
+      ["linear"],
+      ["zoom"],
+      0, 1,
+      9, 3
+      ],
+      
+
+      "heatmap-color": [
+      "interpolate",
+      ["linear"],
+      ["heatmap-density"],
+      0, "rgba(33,102,172,0)",
+      0.2, "rgb(103,169,207)",
+      0.4, "rgb(209,229,240)",
+      0.6, "rgb(253,219,199)",
+      0.8, "rgb(239,138,98)",
+      1, "rgb(178,24,43)"
+      ],
+
+      "heatmap-radius": [
+      "interpolate",
+      ["linear"],
+      ["zoom"],
+      0, 2,
+      9, 20
+      ],
+
+      "heatmap-opacity": [
+      "interpolate",
+      ["linear"],
+      ["zoom"],
+      7, 1,
+      9, 0
+      ],
+      }
+      }, 'waterway-label');
+       
+      map.addLayer({
+      "id": "earthquakes-point",
+      "type": "circle",
+      "source": "earthquakes",
+      "minzoom": 7,
+      "paint": {
+
+      "circle-radius": [
+      "interpolate",
+      ["linear"],
+      ["zoom"],
+      7, [
+      "interpolate",
+      ["linear"],
+      ["get", "mag"],
+      1, 1,
+      6, 4
+      ],
+      16, [
+      "interpolate",
+      ["linear"],
+      ["get", "mag"],
+      1, 5,
+      6, 50
+      ]
+      ],
+
+      "circle-color": [
+      "interpolate",
+      ["linear"],
+      ["get", "mag"],
+      1, "rgba(33,102,172,0)",
+      2, "rgb(103,169,207)",
+      3, "rgb(209,229,240)",
+      4, "rgb(253,219,199)",
+      5, "rgb(239,138,98)",
+      6, "rgb(178,24,43)"
+      ],
+      "circle-stroke-color": "white",
+      "circle-stroke-width": 1,
+      "circle-opacity": [
+      "interpolate",
+      ["linear"],
+      ["zoom"],
+      7, 0,
+      8, 1
+      ]
+      }
+      }, 'waterway-label');
+    });              
 });
