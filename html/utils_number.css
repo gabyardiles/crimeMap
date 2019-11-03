@@ -1,0 +1,10 @@
+div {
+color: slategrey;
+align-content: center;
+}
+div>img{
+    margin: 10px;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+}
