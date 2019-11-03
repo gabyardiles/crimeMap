@@ -5,7 +5,6 @@ div>#footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 5%;
     background-color: black;
     text-align: center;
 }
@@ -20,11 +19,14 @@ div>#nav {
 
 div>#map {
     position: relative;
-    left: 10;
-    right: 10;
+    left: 0;
+    right: 0;
     top:15;
     bottom:15;
+    width: 200%;
+    height: 80%;
 }
+
 
 .legend {
     background-color: #fff;
@@ -90,10 +92,6 @@ a, a:hover, a:focus {
     border-bottom: 1px dashed #ddd;
     margin: 40px 0;
 }
-
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
 
 .wrapper {
     display: flex;
@@ -172,11 +170,6 @@ a.article, a.article:hover {
     color:white !important;
 }
 
-
-
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
 #content {
     width: 100%;
     padding: 20px;
@@ -218,11 +211,11 @@ a.article, a.article:hover {
     margin: 5px auto;
 }
 #dateFilter {
-    margin-left: 30px;
+    margin: 15px;
 } 
 
 /* ---------------------------------------------------
-    MEDIAQUERIES
+    MEDIA
 ----------------------------------------------------- */
 @media (max-width: 768px) {
     #sidebar {
@@ -253,4 +246,14 @@ a.article, a.article:hover {
         transform: rotate(-45deg) translate(1px, -1px);
     }
 
+
+    div>#map {
+        position: relative;
+        left: 10;
+        right: 10;
+        top:15;
+        bottom:15;
+        width:90%;
+        height: 80%;
+    }
 }
