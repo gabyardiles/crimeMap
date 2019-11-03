@@ -217,7 +217,9 @@ a.article, a.article:hover {
     opacity: 1;
     margin: 5px auto;
 }
-
+#dateFilter {
+    margin-left: 30px;
+} 
 
 /* ---------------------------------------------------
     MEDIAQUERIES
