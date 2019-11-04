@@ -4,22 +4,17 @@ $(document).ready(function () {
         $(this).toggleClass('active');
     });
 
+    var date = $('#dateFilter')
+    var Currentdate = new Date();
 
-    // validate Date
-    
-    function isValidDate(str) {
-        
-        var regex = /(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})\s*(\d{0,2}):?(\d{0,2}):?(\d{0,2})/,
-        parts = regex.exec(str); 
-        
-        if (parts) {
-          var date = new Date ( (+parts[3]), (+parts[1])-1, (+parts[2]), (+parts[4]), (+parts[5]), (+parts[6]) );
-          if ( ( date.getDate() == parts[2] ) && ( date.getMonth() == parts[1]-1 ) && ( date.getFullYear() == parts[3] ) ) {
-            return date;
-          }
-        } 
-        
-        return false;
-      }
+    var day = Currentdate.getDate();
+    var month = Currentdate.getMonth() + 1;
+    var year = Currentdate.getFullYear();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var today = year + "-" + month + "-" + day;       
+    date.val(today);
     
 });
