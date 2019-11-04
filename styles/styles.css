@@ -23,8 +23,8 @@ div>#map {
     right: 0;
     top:15;
     bottom:15;
-    width: 200%;
-    height: 80%;
+    width: 100%;
+    height: 75%;
 }
 
 
@@ -253,7 +253,7 @@ a.article, a.article:hover {
         right: 10;
         top:15;
         bottom:15;
-        width:90%;
-        height: 80%;
+        width:80%;
+        height: 60%;
     }
 }
