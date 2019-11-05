@@ -1,0 +1,43 @@
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+html,body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, Sans-serif;
+}
+
+body>#header_Default{
+  background: black;
+}
+body>#header_Default>a {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+body>#header_Default>a>img{
+  height: 60px;
+  width: 60px;
+}
+
+div>#footer {
+  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+}
+
+a:visited {
+  color: white;
+}
+
+.type_crime {
+    border: 2px solid lightgray;;
+}

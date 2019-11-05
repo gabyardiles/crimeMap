@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="../script/contact.js"></script>
+        <script src="../script/new_crime.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <!-- font awesome -->
@@ -36,31 +36,21 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"></div>
-                                        </div>
+                                        <label for="address">Dirección:</label>
+                                        <div class="input-group">
                                             <input type="search" class="form-control" id="address" name="Dirección" placeholder="Dirección" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"></i></div>
                                         </div>
-                                        <select id="type_crime">
-                                            <option>Violencia</option>
-                                            <option>Violencia</option>
-                                            <option>Violencia</option>
+                                </div>
+                                <div class="form-group">
+                                    <label for="type_crime">Tipo de crimen:</label>
+                                    <div class="input-group">
+                                        <select id="type_crime" class="browser-default custom-select">
                                         </select>
-                                        <!-- <input type="text" class="form-control" id="descriptionCrime" name="Descripción" placeholder="Descripción"> -->
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="descriptionCrime">Descripción:</label>
                                     <div class="input-group">
-                                        <div class="input-group-prepend">
-                                                <div class="input-group-text"></i></div>
-                                         </div>
                                         <textarea id="descriptionCrime" class="form-control" placeholder="Agrega una Descripción"></textarea>
                                     </div>
                                 </div>
