@@ -1,11 +1,16 @@
 $(document).ready(function () {
+    // var modal = $('#modelLogIn')
+    // modal.removeClass( "hideModalLogIn" ).addClass( "showModalLogIn" );
+    $(window).on('load',function(){
+        $('#modelLogIn').modal('show');
+    });
+
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
         $(this).toggleClass('active');
     });
-
     validateDate()
-    
+
     function validateDate() {
         var date = $('#dateFilter')
         var Currentdate = new Date();

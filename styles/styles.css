@@ -212,7 +212,20 @@ a.article, a.article:hover {
 }
 #dateFilter {
     margin: 15px;
-} 
+}
+.custom_dimentions_button {
+    margin: 30px;
+    width: 400px;
+    height: 80px;
+}
+
+.hideModalLogIn {
+    visibility: hidden; 
+}
+
+.showModalLogIn {
+    visibility: visible;
+}
 
 /* ---------------------------------------------------
     MEDIA
