@@ -216,7 +216,7 @@ a.article, a.article:hover {
     opacity: 1;
     margin: 5px auto;
 }
-#dateFilter {
+#dateFilter, #located {
     margin: 15px;
 }
 .custom_dimentions_button {
