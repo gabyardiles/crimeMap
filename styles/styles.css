@@ -1,4 +1,10 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 div>#footer {
     color: white;
     position: fixed;
@@ -218,15 +224,6 @@ a.article, a.article:hover {
     width: 400px;
     height: 80px;
 }
-
-.hideModalLogIn {
-    visibility: hidden; 
-}
-
-.showModalLogIn {
-    visibility: visible;
-}
-
 /* ---------------------------------------------------
     MEDIA
 ----------------------------------------------------- */
@@ -275,5 +272,11 @@ a.article, a.article:hover {
         width: 100%;
         background-color: black;
         text-align: center;
+    }
+
+    .custom_dimentions_button {
+        margin: 30px;
+        width: 300px;
+        height: 80px;
     }
 }
