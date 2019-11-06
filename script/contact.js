@@ -28,10 +28,18 @@ $(document).ready(function () {
                 e.target.setCustomValidity("");
             };
         }
+    };
+
+    function validateMaxLenghtTextArea() {
+       var comments =  $('#descriptionCrime').val()
+       if (comments.length > 200) {
+           alert("El campo de descripcíon no puede contener mas de 200 caracteres")
+       }
     }
     
     // button submint
     $('#submit').on('click', function (e) {
-
+        // send data
+        validateMaxLenghtTextArea()
     });
 });
