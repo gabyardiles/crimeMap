@@ -1,17 +1,17 @@
 $(document).ready(function () {
     var elementsInput = document.getElementsByTagName("INPUT");
     var elementsTA = document.getElementsByTagName("TEXTAREA");
-    var types = ["Acoso y violación","Robo a inmuebles","Robo de vehículos","Robo a individuos","Venta de estupefacientes","Violencia"]
+    // var types = ["Acoso y violación","Robo a inmuebles","Robo de vehículos","Robo a individuos","Venta de estupefacientes","Violencia"]
 
 
-    // charge type_crime
-    types.forEach(function(value) {
-        $('#type_crime')
-        .append($("<option></option>")
-        .attr("value", value)
-        .text(value));
+    // // charge type_crim
+    $('#type_crime').html('Downloading...');
+    $.ajax({
+    url: "../php/types_crime.php"
+    }).done(function(data) {
+        $('#type_crime').html(data);
     });
-
+    
     validateFields(elementsInput)
     validateFields(elementsTA)
 
@@ -39,6 +39,7 @@ $(document).ready(function () {
         }
     };   
 
+
     // action change selected option
     $('#type_crime').on('change', function (e) {
         // send data
@@ -47,6 +48,5 @@ $(document).ready(function () {
     $('#submit').on('click', function (e) {
         // send data
     });
-
 
 });
