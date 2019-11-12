@@ -116,7 +116,7 @@ $(document).ready(function () {
         var hour = $('#hour_crime').val()
         var isValid = /^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$/.test(hour);
         if (!isValid) {
-            alert("El format de la hora es incorrecto por favor reintente");
+            // alert("El format de la hora es incorrecto por favor reintente");
         }
     };
     

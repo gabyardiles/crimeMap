@@ -216,8 +216,18 @@ a.article, a.article:hover {
     opacity: 1;
     margin: 5px auto;
 }
-#dateFilter, #located {
-    margin: 15px;
+
+#dateFilter {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#located {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 10px;
+    margin-right: 28px;
 }
 .custom_dimentions_button {
     margin: 30px;

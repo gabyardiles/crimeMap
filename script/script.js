@@ -9,6 +9,15 @@ $(document).ready(function () {
         $(this).toggleClass('active');
     });
 
+    $('#type_crime_toggle').on('click', function() {
+        chargeOptionsTypeCrime()
+    })
+
+    $('#located_toggle').on('click', function() {
+        chargeOptionsZones()
+    })
+    
+    
     validateDate()
 
     function validateDate() {
@@ -47,5 +56,25 @@ $(document).ready(function () {
             
         });
     
+    };
+
+
+    function chargeOptionsTypeCrime() {
+        $.ajax({
+            url: "../php/types_crime_Menu.php",
+            type:"GET"
+        }).done(function(data) {
+            $('#Tipos_delito_Submenu').html(data);
+        });
+    };
+
+
+    function chargeOptionsZones() {
+        $.ajax({
+            url: "../php/zones.php",
+            type:"GET"
+        }).done(function(data) {
+            $('#located_select').html(data);
+        });
     };
 });

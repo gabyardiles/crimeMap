@@ -19,9 +19,16 @@
         header("../html/new_crime.html");
         $conn=null;
 
-        echo 'Se agrego correctamente el nuevo crimen';
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Se agregó correctamente el nuevo crimen');
+    window.location.href='../html/crimeMap.php';
+     </script>");
+
+
     } else {
-        echo 'Falló el envio';
+        echo ("<script LANGUAGE='JavaScript'>
+        window.alert('Falló el envio');
+         </script>");
     }
 ?>
 

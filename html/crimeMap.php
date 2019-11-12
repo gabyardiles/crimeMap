@@ -58,49 +58,8 @@
                         <a href="#busqueda_Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-search"></i> Búsqueda</a>
                         <ul class="collapse list-unstyled" id="busqueda_Submenu">
                             <li>
-                                <a  href="#Tipos_delito_Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-exclamation-triangle"></i> Tipo de delito</a>
+                                <a id="type_crime_toggle" href="#Tipos_delito_Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-exclamation-triangle"></i> Tipo de delito</a>
                                 <ul class="collapse list-unstyled" id="Tipos_delito_Submenu">
-                                    <li>
-                                        <a href="#">
-                                            <svg height="20" width="20">
-                                                <circle cx="10" cy="10" r="5" stroke="red" stroke-width="3" fill="red" /> 
-                                            </svg>
-                                            Acoso y violación</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <svg height="20" width="20">
-                                                <circle cx="10" cy="10" r="5" stroke="orange" stroke-width="3" fill="orange" /> 
-                                            </svg>
-                                            Robo de inmuebles</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                         <svg height="20" width="20">
-                                            <circle cx="10" cy="10" r="5" stroke="pink" stroke-width="3" fill="pink" /> 
-                                         </svg>
-                                        Robo de vehículos</a>
-                                    </li>
-                                    <li> 
-                                        <a href="#">
-                                        <svg height="20" width="20">
-                                            <circle cx="10" cy="10" r="5" stroke="skyblue" stroke-width="3" fill="skyblue" /> 
-                                            </svg>
-                                            Robo a individuos</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                        <svg height="20" width="20">
-                                            <circle cx="10" cy="10" r="5" stroke="beige" stroke-width="3" fill="beige" /> 
-                                        </svg>
-                                        Venta de estupefacientes</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                        <svg height="20" width="20">
-                                            <circle cx="10" cy="10" r="5" stroke="yellow" stroke-width="3" fill="yellow" /> 
-                                        </svg> 
-                                        Vandalismo</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -112,11 +71,11 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#located" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-map-marked"></i> Ubicación</a>
+                                <a id="located_toggle" href="#located" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-map-marked"></i> Ubicación</a>
                                 <ul class="collapse list-unstyled" id="located">
-                                        <li>
-                                            <input id="located" type="search" name="Busqueda">
-                                        </li>
+                                    <select name="located" id="located_select" class="browser-default custom-select">
+                                            <option value='0'>Seleccionar zona</option>
+                                    </select>
                                 </ul>
                             </li>
                         </ul>
