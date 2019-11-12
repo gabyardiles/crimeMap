@@ -13,14 +13,16 @@ if (isset($_GET['code'])) {
 	$client->authenticate();
 
 	$info = $oauth2->userinfo->get();
+
 	$person = ORM::for_table('google_users')->where('email', $info['email'])->find_one();
 
 	if(!$person){
-		print('entra aca');
 		$person = ORM::for_table('google_users')->create();
 
 		$person->email = $info['email'];
 		$person->name = $info['name'];
+		print($info['name']);
+		print($info['email']);
 
 		if(isset($info['picture'])){
 			$person->photo = $info['picture'];
@@ -35,7 +37,7 @@ if (isset($_GET['code'])) {
 		$person->save();
 	}
 
-	// guaradamos la sesion de usuario
+	// guardamos la sesion de usuario
 	$_SESSION['demo_sesion_google'] = $person->id();
 
 	// redireccionamos a la url especificada

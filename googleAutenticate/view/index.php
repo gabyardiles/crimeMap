@@ -24,7 +24,7 @@
                 </ul>
                 </form>
                 <div class="signup">
-                <span>Su registro fue : <?php echo new RelativeTime($person->registered)?></span><br>
+                <!-- <span>Su registro fue :</span><br> -->
                 </div>
             </div>
 

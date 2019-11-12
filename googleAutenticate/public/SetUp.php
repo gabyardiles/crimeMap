@@ -8,7 +8,7 @@ require_once 'relativeTime.php';
 require_once 'sdk-google/apiClient.php';
 require_once 'sdk-google/contrib/apiOauth2Service.php';
 // Google API. obtenemos configuraciones de https://code.google.com/apis/console/
-$redirect_url = 'http://localhost/crimeMap/html/profile.html'; // redirect url
+$redirect_url = 'http://localhost/crimeMap/html/profile.php'; // redirect url
 $client_id = '249604237589-kfkc1kc4cuq1rc3cuunok36d8vlcmm88.apps.googleusercontent.com';
 $client_secret = 'muDmAKUDJH4CQyynvk6qUAXP';
 $api_key = 'AIzaSyAcPXPXaOSPKgexntLpqHF_LpV298tlItI'; //api key 1
