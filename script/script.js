@@ -1,24 +1,14 @@
 $(document).ready(function () {
     $(window).on('load',function(){
         $('#modelLogIn').modal('show');
-
-        $('#modelLogIn').resizable({
-            minHeight: 200,
-            minWidth: 200
-          });
-          $('#modelLogIn').draggable();
-        
-          $('#modelLogIn').on('show.bs.modal', function() {
-            $(this).find('.modal-body').css({
-              'max-height': '100%'
-            });
-          });
+        googleAutenticate()
     });
 
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
         $(this).toggleClass('active');
     });
+
     validateDate()
 
     function validateDate() {
