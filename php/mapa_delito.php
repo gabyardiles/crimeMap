@@ -3,7 +3,7 @@
     include 'config_conexion.php';
     header("Content-type: text/javascript");
     
-    $sql_crime="SELECT * FROM crime";
+    $sql_crime="SELECT * FROM crime INNER JOIN type_crime on crime.type_crime_id = type_crime.ID";
 	$resultados=$conn->prepare($sql_crime);
 	$resultados->execute();
 	$registros=$resultados->fetchAll(PDO::FETCH_OBJ);
@@ -17,10 +17,11 @@
             'features' => array(
                 'type' => 'Feature',
                 'properties' => array(
-                    'title' => $crime->crime_description,
+                    'title' => $crime->type_crime_description,
                     'marker-color' => '#f00',
-                    'marker-size' => 'small'
-                    ),
+                    'marker-size' => 'small',
+                    'icon' => 'police'
+                ),
                 "geometry" => array(
                     'type' => 'Point',
                     'coordinates' => array($crime->longitude,$crime->latitude)

@@ -117,6 +117,7 @@
                 </nav>
                 <!-- Contenedor mapa -->
                 <div id='map' class="col-lg-12 col-md-6- col-sm-3">
+                <pre id='coordinates' class='coordinates'></pre>
                 </div>
             </div>
             <!-- Contenedor footer -->
