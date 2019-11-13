@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $(window).on('load',function(){
         $('#modelLogIn').modal('show');
-        googleAutenticate()
     });
 
     $('#sidebarCollapse').on('click', function () {
