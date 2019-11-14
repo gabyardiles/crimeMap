@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    $(window).on('load',function(){
-        $('#modelLogIn').modal('show');
-    });
+    // $(window).on('load',function(){
+    //     $('#modelLogIn').modal('show');
+    // });
 
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
@@ -57,7 +57,6 @@ $(document).ready(function () {
     
     };
 
-
     function chargeOptionsTypeCrime() {
         $.ajax({
             url: "../php/types_crime_Menu.php",
@@ -76,4 +75,15 @@ $(document).ready(function () {
             $('#located_select').html(data);
         });
     };
+
+    // document.observe('dom:loaded', function() {
+    //     $('#located_select').on('select', function() {
+    //         alert('funciona');
+    //     });
+    // });​
+
+    // $("#located_select").change(function(){
+    //     window.location("aca");
+    // });
+    
 });

@@ -23,7 +23,7 @@
          <title>Mapa del delito</title>
     </head>
     <body>
-        <div class="modal fade" id="modelLogIn" tabindex="-1" role="dialog" aria-labelledby="modelLogIn" aria-hidden="true">
+        <!-- <div class="modal fade" id="modelLogIn" tabindex="-1" role="dialog" aria-labelledby="modelLogIn" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -45,7 +45,7 @@
                           </div>
                         </div>
                 </div>
-        </div>
+        </div> -->
 
         <div class="wrapper">
             <!-- Sidebar -->
@@ -105,11 +105,14 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="nav navbar-nav ml-auto">
-                                <li class="nav-item active">
+                                <!-- <li class="nav-item active">
                                     <a class="nav-link" href="../html/profile.html">Perfil usuario</a>
+                                </li> -->
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="../html/new_crime.html">Nuevo delito</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../html/new_crime.html">Nuevo delito</a>
+                                    <a class="nav-link" href="../html/moderar.html">Moderar</a>
                                 </li>
                             </ul>
                         </div>
