@@ -1,9 +1,9 @@
 $(document).ready(function () {
     chargeCrimeList();
 
-
     // validate selected checkbox 
     $('#customCheck1').on('change', function() {
+        console.log('check gral');
         if (this.checked) {
             $("input[type=checkbox]").each(function(i,e)
             {
@@ -16,7 +16,6 @@ $(document).ready(function () {
         })
         }
     });
-
 
     $('#left').on('click', function(){
 
@@ -43,4 +42,5 @@ $(document).ready(function () {
                 
         });
     }
+
 });
