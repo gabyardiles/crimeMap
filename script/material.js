@@ -17,11 +17,35 @@ $(document).ready(function () {
         }
     });
 
+    // Action button reject
     $('#left').on('click', function(){
-
+        
+        var valueList = [];
+        $('#crimeList tr').each(function() {
+            $(this).find("input[type=checkbox]:checked").each(function() {
+            var values = [];
+            $(this).closest("td").siblings("td").each(function() {
+                values.push($(this).text());
+            });
+            valueList.push(values.join(", "));
+            });
+        });
+        console.log("(" + valueList.join("),(") + ")");
     });
-    $('#right').on('click', function(){
 
+    //Action button acept
+    $('#right').on('click', function(){
+        var valueList = [];
+        $('#crimeList tr').each(function() {
+            $(this).find("input[type=checkbox]:checked").each(function() {
+            var values = [];
+            $(this).closest("td").siblings("td").each(function() {
+                values.push($(this).text());
+            });
+            valueList.push(values.join(", "));
+            });
+        });
+        console.log("(" + valueList.join("),(") + ")");
     });
 
     function chargeCrimeList() {

@@ -10,8 +10,8 @@
         $hour_crime = $_POST['hour_crime'];
         $date_crime = $_POST['date_crime'];
         
-        $sql = "INSERT INTO `crime`(`type_crime_id`, `crime_description`, `date_register`, `latitude`, `longitude`, `date_crime`, `hour_crime`, `zone_id`, `address`) 
-        VALUES ('$type_crime','$descriptionCrime',now(),null,null,'$date_crime','$hour_crime','$zone','$address')";
+        $sql = "INSERT INTO `crime`(`type_crime_id`, `crime_description`, `date_register`, `latitude`, `longitude`, `date_crime`, `hour_crime`, `zone_id`, `address`,`status`) 
+        VALUES ('$type_crime','$descriptionCrime',now(),null,null,'$date_crime','$hour_crime','$zone','$address','Disponible')";
 
         $datos_introducidos=$conn->prepare($sql);
         $datos_introducidos->execute();
