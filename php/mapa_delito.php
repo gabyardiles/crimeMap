@@ -3,7 +3,7 @@
     include 'config_conexion.php';
     header("Content-type: text/javascript");
     
-    $sql_crime="SELECT * FROM crime INNER JOIN type_crime on crime.type_crime_id = type_crime.ID";
+    $sql_crime="SELECT * FROM crime INNER JOIN type_crime on crime.type_crime_id = type_crime.ID WHERE status='Aprobado'";
 	$resultados=$conn->prepare($sql_crime);
 	$resultados->execute();
 	$registros=$resultados->fetchAll(PDO::FETCH_OBJ);
