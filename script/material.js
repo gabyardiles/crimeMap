@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var valueList = [];
+
     chargeCrimeList();
 
     // validate selected checkbox 
@@ -19,41 +21,50 @@ $(document).ready(function () {
 
     // Action button reject
     $('#left').on('click', function(){
-        
-        var valueList = [];
-        $('#crimeList tr').each(function() {
-            $(this).find("input[type=checkbox]:checked").each(function() {
-            var values = [];
-            $(this).closest("td").siblings("td").each(function() {
-                values.push($(this).text());
-            });
-            valueList.push(values.join(", "));
-            });
-        });
-        console.log("(" + valueList.join("),(") + ")");
+       creatListSelected();
     });
 
     //Action button acept
     $('#right').on('click', function(){
-        var valueList = [];
+        creatListSelected();
+    });
+
+    function creatListSelected() {
         $('#crimeList tr').each(function() {
             $(this).find("input[type=checkbox]:checked").each(function() {
             var values = [];
-            $(this).closest("td").siblings("td").each(function() {
-                values.push($(this).text());
+            $(this).closest("td").siblings("td").each(function(i, element) {
+                if (i === 0) {
+                    values.push($(this).text());
+                }
             });
             valueList.push(values.join(", "));
+            updatedState();
             });
         });
-        console.log("(" + valueList.join("),(") + ")");
-    });
+    };
+    
 
+    function updatedState() {
+        var dataString = 'ids=' + valueList.join();
+        $.ajax({
+            url: "../php/updatedStateCrime.php",
+            type:"POST",
+            data:dataString,
+            dataType:"html"                
+        }).done(function(data) {
+            console.log(data);
+            alert(data);
+            window.location.reload();
+        });
+    }
+
+    // charge list
     function chargeCrimeList() {
         $.ajax({
             url: "../php/moderar.php",
             type:"GET"
             }).done(function(data) {
-                console.log(data);
                 // var myJsonString = JSON.parse(data);
                 // console.log(myJsonString);
                 // myJsonString.features.forEach(function(item) {

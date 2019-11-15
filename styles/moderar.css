@@ -1,9 +1,5 @@
 * {box-sizing: border-box;}
 
-body { 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
 html,body {
   margin: 0;
   padding: 0;
@@ -47,6 +43,6 @@ h4 {
   margin: 2rem 0rem 1rem;
 }
 
-.table-image>td, th  {
+/* .table-image>td, th  {
   vertical-align: middle;
-}
+} */
