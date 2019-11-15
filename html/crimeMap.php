@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="../script/script.js"></script>
         <script src="../script/map.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -46,7 +45,6 @@
                         </div>
                 </div>
         </div> -->
-
         <div class="wrapper">
             <!-- Sidebar -->
             <nav id="sidebar">
@@ -89,10 +87,10 @@
                         <a href="../html/about_us.html"><i class="far fa-question-circle"></i> Acerca de</a>
                     </li>
                 </ul>
-                
+                <br>
+                <br>
+                <a id="button_filter" href="../html/search.html"><i class="fas fa-search"></i> Filtrar contenido</a>
             </nav>
-            <!-- Page Content Holder -->
-            
             <div id="content">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
@@ -105,14 +103,14 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="nav navbar-nav ml-auto">
-                                <!-- <li class="nav-item active">
-                                    <a class="nav-link" href="../html/profile.html">Perfil usuario</a>
-                                </li> -->
                                 <li class="nav-item active">
                                     <a class="nav-link" href="../html/new_crime.html">Nuevo delito</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="../html/moderar.html">Moderar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../html/search.html">Filtrar contenido</a>
                                 </li>
                             </ul>
                         </div>

@@ -9,7 +9,6 @@
     $sql_updated_state="UPDATE crime SET status = 'Aprobado' WHERE ID_crime IN ($ids)";
 	$resultados=$conn->prepare($sql_updated_state);
     $resultados->execute();
-    // $registros=$resultados->fetchAll(PDO::FETCH_OBJ);
     $resultados->closeCursor();
 
     if($resultados->errorCode() == 0) {
