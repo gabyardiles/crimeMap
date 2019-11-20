@@ -48,9 +48,8 @@
         <div class="wrapper">
             <!-- Sidebar -->
             <nav id="sidebar">
-                <div class="sidebar-header">
-                    <h3>Nombre usuario</h3>
-                </div>
+                <!-- <div class="sidebar-header">
+                </div> -->
                 <ul class="list-unstyled components">
                     <li class="active">
                         <a href="#busqueda_Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-search"></i> Búsqueda</a>
