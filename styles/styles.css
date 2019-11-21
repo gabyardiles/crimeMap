@@ -248,7 +248,7 @@ a.article, a.article:hover {
     border-radius: 3px;
     display: none;
 }
-#button_filter {
+#button_filter  #modalLoginForm{
     margin-left: 30px;
 }
 

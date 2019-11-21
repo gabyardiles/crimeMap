@@ -22,34 +22,40 @@
          <title>Mapa del delito</title>
     </head>
     <body>
-        <!-- <div class="modal fade" id="modelLogIn" tabindex="-1" role="dialog" aria-labelledby="modelLogIn" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="modal_title">Login</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                              <p>Para tener acceso a mayor cantidad de datos puedes loguearte via google</p>
-                              <div class="btn white custom_dimentions_button">
-                                      <a href="../googleAutenticate/index.php">
-                                        <div class="right">
-                                            <img width="40px" height="40px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
-                                        </div>
-                                        Login con Google
-                                    </a>
-                              </div>
-                          </div>
-                        </div>
+    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Login</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="defaultForm-email"><i class="fas fa-envelope prefix grey-text"></i> Email</label>
+                <input type="email" id="defaultForm-email" class="form-control validate">
                 </div>
-        </div> -->
+
+                <div class="md-form mb-4">
+                <label data-error="wrong" data-success="right" for="defaultForm-pass"><i class="fas fa-lock prefix grey-text"></i> Password</label>
+                <input type="password" id="defaultForm-pass" class="form-control validate">
+                </div>
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-default">Login</button>
+            </div>
+            </div>
+        </div>
+        </div>
         <div class="wrapper">
             <!-- Sidebar -->
             <nav id="sidebar">
-                <!-- <div class="sidebar-header">
-                </div> -->
+                <div class="sidebar-header">
+                    <a id="modalLoginForm" href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Login</a>
+                </div>
                 <ul class="list-unstyled components">
                     <li class="active">
                         <a href="#busqueda_Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-search"></i> Búsqueda</a>
