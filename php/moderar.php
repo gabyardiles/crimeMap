@@ -22,6 +22,6 @@
         // );
         // array_push($json,$marker['result']);
         // echo json_encode($json);
-        echo "<tr><td><div class='custom-control custom-checkbox'><input type='checkbox' name='crimes[]' class='custom-control-input' id=$crime->ID_crime><label class='custom-control-label' for=$crime->ID_crime></label></div></td><td>$crime->ID_crime</td><td>$crime->type_crime_description</td><td>$crime->crime_description</td><td>$crime->date_crime $crime->hour_crime</td><td>$crime->zone_description</td></tr>";
+        echo "<tr><td><div class='custom-control custom-checkbox'><input type='checkbox' name='crimes[]' class='custom-control-input' id=$crime->ID_crime><label class='custom-control-label' for=$crime->ID_crime></label></div></td><td>$crime->ID_crime</td><td>$crime->type_crime_description</td><td>$crime->crime_description</td><td class='d-none d-lg-table-cell'>$crime->date_crime $crime->hour_crime</td><td class='d-none d-lg-table-cell'>$crime->zone_description</td></tr>";
     }
     exit();
