@@ -5,33 +5,31 @@
 
     session_start();
     $username=$_SESSION['root'];
-    $zone_id = $_POST['zone'];
-    $date = $_POST['date_crime'];
-    $type_crime = $_POST['type_crime'];
+    $zone_id = (int)$_POST['zone'];
+    $date_start = $_POST['date_crime_start'];
+    $date_end = $_POST['date_crime_end'];
+    $type_crime = (int)$_POST['type_crime'];
+    $parameters = [];
 
-
-    // echo $parseZone;
-    // echo $date;
-    // echo $type_crime;
-
-    // $queryFilter = "AND";
-
-    if ($date != "") {
-        // $queryFilter = $queryFilter + 'date_crime=' + $date;
+    $sql_crime="SELECT * FROM crime INNER JOIN type_crime on crime.type_crime_id = type_crime.ID WHERE status='Aprobado'";
+    
+    if (!empty($date_start) && !empty($date_end)) {
+        $sql_crime.=" AND date_crime = BETWEEN :date_start AND :date_end";
+        $parameters['date_start'] = $date_start;
+        $parameters['date_end'] = $date_end;
     };
 
-    if ($zone_id != "") {
-        // $queryFilter = $queryFilter + 'zone_id=' + $parseZone;
+    if (!empty($zone_id)) {
+        $sql_crime.=" AND zone_id = :zone_id";
+        $parameters['zone_id'] = $zone_id;
     };
 
-    if ($type_crime != "") {
-        // $queryFilter = $queryFilter + 'type_crime_id=' + $type_crime;
+    if (!empty($type_crime)) {
+        $sql_crime.=" AND type_crime = :type_crime";
+        $parameters['type_crime'] = $zone_id;
     }
-
-    $sql_crime="SELECT * FROM crime INNER JOIN type_crime on crime.type_crime_id = type_crime.ID WHERE status='Aprobado' AND zone_id = $zone_id";
-    // echo $sql_crime;
     $resultados=$conn->prepare($sql_crime);
-	$resultados->execute();
+	$resultados->execute($parameters);
 	$registros=$resultados->fetchAll(PDO::FETCH_OBJ);
     $resultados->closeCursor();
     
@@ -56,8 +54,7 @@
         );
     array_push($geojson['features'], $marker['features']);
     }
-    header('Location: ../html/crimeMap.php?list='.$geojson);
-
-    // echo json_encode($geojson);
+    // header('Location: ../html/crimeMap.php?list='.$geojson);
+    echo json_encode($geojson);
     exit();
 ?>
