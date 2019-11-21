@@ -1,5 +1,9 @@
 $(document).ready(function () {
-    chargeTypeCrimeMap()
+
+  chargeTypeCrimeMap()
+
+  validateFormLogin()
+
   // Map
   function chargeTypeCrimeMap() {
     $.ajax({
@@ -164,4 +168,74 @@ function chargeOptionsZones() {
         $('#located_select').html(data);
     });
   };
+
+
+
+  // function validate form login
+
+  function validateFormLogin() {
+    $('#submint_login').on('click', function() {
+
+      var elementsInput = document.getElementsByTagName("INPUT");
+      validateFields(elementsInput)
+
+      if (validateEmail() && validatePassWord()) {
+        saveSessionUser()
+      } else {
+        alert('Ocurrio un error por favor reintente');
+      }
+    });
+  };
+
+  function validateEmail() {
+    var email = $('#email_login').val()
+    var regexEmail = "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/";
+
+    if (regexEmail.match(email)) {
+      return true;
+    } else {
+      return false;
+    }
+
+  };
+
+  function validatePassWord(){
+    var pass = $('#password_login').val()
+
+    if (pass.lenght == 8) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  function saveSessionUser() {
+    // $.ajax({
+    //   url: "../php/login.php",
+    //   type:"GET"
+    // }).done(function(data) {
+    //     $('#located_select').html(data);
+    // });
+  };
+
+  function validateFields(elements) {
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function (e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                switch (e.srcElement.id) {
+                    case "email_login":
+                        e.target.setCustomValidity("El campo email no puede estar vacio");
+                        break;
+                    case "password_login":
+                    e.target.setCustomValidity("El campo password no puede estar vacio");
+                    break;
+                }
+            }
+        };
+
+        elements[i].oninput = function (e) {
+            e.target.setCustomValidity("");
+        };
+    }
+}
 });

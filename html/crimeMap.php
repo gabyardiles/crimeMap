@@ -35,17 +35,17 @@
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="defaultForm-email"><i class="fas fa-envelope prefix grey-text"></i> Email</label>
-                <input type="email" id="defaultForm-email" class="form-control validate">
+                <input id="email_login" type="email" id="defaultForm-email" class="form-control validate" required pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/">
                 </div>
 
                 <div class="md-form mb-4">
                 <label data-error="wrong" data-success="right" for="defaultForm-pass"><i class="fas fa-lock prefix grey-text"></i> Password</label>
-                <input type="password" id="defaultForm-pass" class="form-control validate">
+                <input id="password_login" type="password" id="defaultForm-pass" class="form-control validate" required pattern="\w{8}" placeholder="********">
                 </div>
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <button class="btn btn-default">Login</button>
+                <button id="submint_login" class="btn btn-default">Login</button>
             </div>
             </div>
         </div>
