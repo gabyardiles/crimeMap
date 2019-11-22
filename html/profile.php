@@ -27,8 +27,20 @@
             <div class="content_image_avatar">
                 <img src="../images/avatar.png" alt="Avatar" class="avatar">
             </div>
-            <h2>Nombre usuario</h2>
-            <p class="title">ejemplo@ejemplo.com</p>
+            <?php
+                 $name = $_GET['name'];
+                 $email = $_GET['email'];
+                 if ($name != "" && $email != "") {
+                    echo "<h2>$name</h2>
+                    <p class='title'>$email</p>";
+                 } else {
+                    echo "<h2>Nombre usuario</h2>
+                    <p class='title'>ejemplo@ejemplo.com</p>";
+                 }
+                 
+            ?>
+            <!-- <h2>Nombre usuario</h2>
+            <p class="title">ejemplo@ejemplo.com</p> -->
             <div class="material-input input"><input type="text" class="form-control" placeholder="<?php echo htmlspecialchars($person->name)?>" disabled><span class="material-bar"></span></div>
             <div id="content_redes">
                 <a id="image" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>

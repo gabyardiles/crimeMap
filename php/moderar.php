@@ -1,11 +1,31 @@
 <?php
 
     include 'config_conexion.php';
-    header("Content-type: text/javascript");
-    
+    header("Content-type: text/javascript");    
+
+    session_start();
+    $username=$_SESSION['root'];
+    $zone = $_POST['zone'];
+    $type_crime_id = $_POST['type_crime'];
+    $dateSince = $_POST['dateSince'];
+    $dateUntil = $_POST['dateUntil'];
+    $parameters = [];
+
     $sql_crime="SELECT * FROM crime INNER JOIN type_crime on crime.type_crime_id = type_crime.ID  INNER JOIN zones on crime.zone_id = zones.ID WHERE crime.status = 'Disponible'";
-	$resultados=$conn->prepare($sql_crime);
-	$resultados->execute();
+    
+    if (!empty($zone)) {
+        $sql_crime.=" AND zone_id = :zone_id";
+        $parameters['zone_id'] = $zone_id;
+    };
+
+    if (!empty($type_crime)) {
+        $sql_crime.=" AND type_crime_id = :type_crime_id";
+        $parameters['type_crime_id'] = $type_crime_id;
+    }
+
+
+    $resultados=$conn->prepare($sql_crime);
+	$resultados->execute($parameters);
 	$registros=$resultados->fetchAll(PDO::FETCH_OBJ);
     $resultados->closeCursor();
 

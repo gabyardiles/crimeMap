@@ -42,7 +42,15 @@ a:visited {
 h4 {
   margin: 2rem 0rem 1rem;
 }
+div.table_responsive {
+  padding: 15px;
+  border: 1px solid grey;
+}
+#hidden_model_alert {
+  visibility: hidden;
+}
 
-/* .table-image>td, th  {
-  vertical-align: middle;
-} */
+.filters {
+  background-color: skyblue;
+  
+}

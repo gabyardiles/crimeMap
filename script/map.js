@@ -96,7 +96,7 @@ $(document).ready(function () {
   };
 
 
-  $('#sidebarCollapse').on('click', function () {
+$('#sidebarCollapse').on('click', function () {
     $('#sidebar').toggleClass('active');
     $(this).toggleClass('active');
 });
@@ -178,12 +178,12 @@ function chargeOptionsZones() {
 
       var elementsInput = document.getElementsByTagName("INPUT");
       validateFields(elementsInput)
+      saveSessionUser()
 
-      if (validateEmail() && validatePassWord()) {
-        saveSessionUser()
-      } else {
-        alert('Ocurrio un error por favor reintente');
-      }
+      // if (validateEmail() && validatePassWord()) {
+      // } else {
+      //   alert('Ocurrio un error por favor reintente');
+      // }
     });
   };
 
@@ -209,12 +209,22 @@ function chargeOptionsZones() {
     }
   };
   function saveSessionUser() {
-    // $.ajax({
-    //   url: "../php/login.php",
-    //   type:"GET"
-    // }).done(function(data) {
-    //     $('#located_select').html(data);
-    // });
+    console.log('entra a save data user');
+    var email = $('#email_login').val();
+    var pass = $('#password_login').val();
+    var dataString = {
+      "email": email,
+      "password" : pass
+  };
+    $.ajax({
+      url: "../php/login.php",
+      type:"POST",
+      data:dataString,
+      dataType:"html"
+    }).done(function(data) {
+        var myJsonString = JSON.parse(data);
+        window.location.href = "../html/profile.php?name=" + myJsonString[0].nombre + "&email=" + myJsonString[0].email;
+      });
   };
 
   function validateFields(elements) {

@@ -25,9 +25,10 @@
     };
 
     if (!empty($type_crime)) {
-        $sql_crime.=" AND type_crime = :type_crime";
-        $parameters['type_crime'] = $zone_id;
+        $sql_crime.=" AND type_crime_id = :type_crime_id";
+        $parameters['type_crime_id'] = $type_crime;
     }
+    
     $resultados=$conn->prepare($sql_crime);
 	$resultados->execute($parameters);
 	$registros=$resultados->fetchAll(PDO::FETCH_OBJ);
@@ -54,7 +55,7 @@
         );
     array_push($geojson['features'], $marker['features']);
     }
-    // header('Location: ../html/crimeMap.php?list='.$geojson);
     echo json_encode($geojson);
+    header('Location: ../html/crimeMap.php');
     exit();
 ?>

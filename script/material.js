@@ -3,6 +3,10 @@ $(document).ready(function () {
 
     chargeCrimeList();
 
+    // charge <select>
+    chargeZones();
+    chargeTypes_crime()
+
     // validate selected checkbox 
     $('#customCheck1').on('change', function() {
         console.log('check gral');
@@ -54,7 +58,7 @@ $(document).ready(function () {
             dataType:"html"                
         }).done(function(data) {
             console.log(data);
-            alert(data);
+            $('#hidden_model_alert').modal('show');
             window.location.reload();
         });
     }
@@ -65,17 +69,64 @@ $(document).ready(function () {
             url: "../php/moderar.php",
             type:"GET"
             }).done(function(data) {
-                // var myJsonString = JSON.parse(data);
-                // console.log(myJsonString);
-                // myJsonString.features.forEach(function(item) {
-                //     markup = "<tr><td><input type='checkbox' name='record'></td><td>" + item.ID + "</td><td>" + tem.crimen_Tipo_de_crimen+ "</td></tr>"; 
-                //     $("table tbody").html(data); 
-                //     // $('#crimeList').append('<tr><td><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck1" checked><label class="custom-control-label" for="customCheck1"></label></div></td><td> + item.ID + </td><td>item.crimen_Tipo_de_crimen</td><td>item.Descripcion</td><td>item.Fecha_delito item.Hora_delito</td><td>item.Zona</td></tr>');
-        
-                // });
                 $("table tbody").html(data);
-                
         });
     }
 
+    function chargeTypes_crime() {
+        $.ajax({
+            url: "../php/types_crime.php",
+            type:"GET"
+        }).done(function(data) {
+            console.log(data);
+            $('#type_crime').html(data);
+        });
+    };
+    
+    function chargeZones(){
+        $.ajax({
+            url: "../php/zones.php",
+            type:"GET"
+            }).done(function(data) {
+                console.log(data);
+                $('#zone_moderator').html(data);
+        });
+    }
+
+    $('#submint_filter').on('click', function(){
+        var zone_moderator = $('#zone_moderator').val();
+        var type_crime = $('#type_crime').val();
+        var dateSince = $('#dateSince').val();
+        var dateUntil = $('#dateUntil').val();
+        
+
+        // if (zone_moderator != "" && zone_moderator != undefined) {
+        //     dataStringZone +=  'zone=' + zone_moderator;
+        // }
+        // if (type_crime != "" && type_crime != undefined) {
+        //     dataString +=  ',type_crime=' + type_crime;
+        // }
+        // if (dateSince != "" && dateSince != undefined) {
+        //     dataString +=  ',dateSince=' + dateSince;
+        // }
+        // if (dateUntil != "" && dateUntil != undefined) {
+        //     dataString +=  ',dateUntil=' + dateUntil;
+        // }
+                
+
+        var dataString = {
+            "zone": zone_moderator,
+            "type_crime" : type_crime
+        };
+        $.ajax({
+            url: "../php/moderar.php",
+            type:"POST",
+            data:dataString,
+            dataType:"html"
+            }).done(function(data) {
+                $("table tbody").html(data);
+        });  
+
+    });
 });
+

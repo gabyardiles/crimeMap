@@ -44,6 +44,17 @@
                 </div>
 
             </div>
+                <?php
+                    // if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+                    //     echo "<div class='modal-footer d-flex justify-content-center'>
+                    //     <button id='submint_logOut' class='btn btn-default'>LogOut</button>
+                    // </div>";
+                    // } else {
+                    //     echo "<div class='modal-footer d-flex justify-content-center'>
+                    //     <button id='submint_login' class='btn btn-default'>Login</button>
+                    // </div>";
+                    // }
+                ?> 
             <div class="modal-footer d-flex justify-content-center">
                 <button id="submint_login" class="btn btn-default">Login</button>
             </div>
@@ -114,9 +125,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="../html/moderar.html">Moderar</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../html/search.html">Filtrar contenido</a>
-                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="../html/profile.php">Perfil</a>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
