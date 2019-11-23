@@ -44,17 +44,6 @@
                 </div>
 
             </div>
-                <?php
-                    // if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-                    //     echo "<div class='modal-footer d-flex justify-content-center'>
-                    //     <button id='submint_logOut' class='btn btn-default'>LogOut</button>
-                    // </div>";
-                    // } else {
-                    //     echo "<div class='modal-footer d-flex justify-content-center'>
-                    //     <button id='submint_login' class='btn btn-default'>Login</button>
-                    // </div>";
-                    // }
-                ?> 
             <div class="modal-footer d-flex justify-content-center">
                 <button id="submint_login" class="btn btn-default">Login</button>
             </div>
@@ -64,9 +53,21 @@
         <div class="wrapper">
             <!-- Sidebar -->
             <nav id="sidebar">
-                <div class="sidebar-header">
-                    <a id="modalLoginForm" href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Login</a>
-                </div>
+                <?php
+                    $name = $_GET['name'];
+                    $email = $_GET['email'];
+                    if ($name != "" && $email != "") {
+                        echo "<div class='sidebar-header'>
+                        <h2>$name</h2>
+                        <p class='title'>$email</p>
+                        <div class='sidebar-header'>
+                        <a id='modalLogOutForm' href='' class='btn btn-default btn-rounded mb-4'>LogOut</a></div>
+                        </div>";
+                    } else {
+                        echo "<div class='sidebar-header'>
+                        <a id='modalLoginForm' href='' class='btn btn-default btn-rounded mb-4' data-toggle='modal' data-target='#modalLoginForm'>Login</a></div>";
+                    }
+                    ?>
                 <ul class="list-unstyled components">
                     <li class="active">
                         <a href="#busqueda_Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-search"></i> Búsqueda</a>
@@ -122,9 +123,15 @@
                                 <li class="nav-item active">
                                     <a class="nav-link" href="../html/new_crime.html">Nuevo delito</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../html/moderar.html">Moderar</a>
-                                </li>
+                                <?php
+                                $name = $_GET['name'];
+                                $email = $_GET['email'];
+                                if ($name != "" && $email != "") {
+                                    echo "<li class='nav-item'>
+                                    <a class='nav-link' href='../html/moderar.html'>Moderar</a>
+                                </li>";
+                                }
+                                ?>
                                 <!-- <li class="nav-item">
                                     <a class="nav-link" href="../html/profile.php">Perfil</a>
                                 </li> -->

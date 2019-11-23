@@ -2,7 +2,8 @@
  include "config_conexion.php";  
 
  session_start();
- $username=$_SESSION['root'];
+ $username=$_SESSION['login_user'];
+ 
  $email = $_POST["email"];
  $password = $_POST["password"];
  $parameters = [];
@@ -33,10 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  $registros=$resultados->fetchAll(PDO::FETCH_OBJ);
  $resultados->closeCursor();
 
-//  foreach ($registros as $user) {
-//    echo ;
-//  }
+
 echo json_encode($registros);
-// header("location: ../html/profile.php");
 }
 ?>

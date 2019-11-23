@@ -56,6 +56,6 @@
     array_push($geojson['features'], $marker['features']);
     }
     echo json_encode($geojson);
-    header('Location: ../html/crimeMap.php');
+    // header('Location: ../html/crimeMap.php');
     exit();
 ?>

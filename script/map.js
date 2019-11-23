@@ -209,7 +209,6 @@ function chargeOptionsZones() {
     }
   };
   function saveSessionUser() {
-    console.log('entra a save data user');
     var email = $('#email_login').val();
     var pass = $('#password_login').val();
     var dataString = {
@@ -223,7 +222,14 @@ function chargeOptionsZones() {
       dataType:"html"
     }).done(function(data) {
         var myJsonString = JSON.parse(data);
-        window.location.href = "../html/profile.php?name=" + myJsonString[0].nombre + "&email=" + myJsonString[0].email;
+        window.location.href = "../html/crimeMap.php?name=" + myJsonString[0].nombre + "&email=" + myJsonString[0].email;
+        // if (myJsonString.lenght > 0) {
+        //   console.log(myJsonString.lenght);
+        //   window.location.href = "../html/crimeMap.php?name=" + myJsonString[0].nombre + "&email=" + myJsonString[0].email;
+        // } else {
+        //   alert('El email o la password son incorrectas por favor reintente');
+        //   window.location.reload();
+        // }
       });
   };
 
@@ -248,4 +254,19 @@ function chargeOptionsZones() {
         };
     }
 }
+
+$('#modalLogOutForm').on('click', function() {
+  closeSessionUser();
+});
+
+
+function closeSessionUser() {
+  $.ajax({
+    url: "../php/login.php",
+    type:"GET"
+  }).done(function(data) {
+      console.log();
+      window.location.href = "../html/crimeMap.php";
+    });
+};
 });

@@ -49,6 +49,9 @@ div.table_responsive {
 #hidden_model_alert {
   visibility: hidden;
 }
+.show_model_alert {
+  visibility: visible;
+}
 
 .filters {
   background-color: skyblue;

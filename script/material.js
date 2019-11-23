@@ -57,8 +57,7 @@ $(document).ready(function () {
             data:dataString,
             dataType:"html"                
         }).done(function(data) {
-            console.log(data);
-            $('#hidden_model_alert').modal('show');
+            alert('Se cambio el estado de los crimenes seleccionados de forma exitosa');
             window.location.reload();
         });
     }
@@ -78,7 +77,6 @@ $(document).ready(function () {
             url: "../php/types_crime.php",
             type:"GET"
         }).done(function(data) {
-            console.log(data);
             $('#type_crime').html(data);
         });
     };
@@ -88,7 +86,6 @@ $(document).ready(function () {
             url: "../php/zones.php",
             type:"GET"
             }).done(function(data) {
-                console.log(data);
                 $('#zone_moderator').html(data);
         });
     }
@@ -124,7 +121,9 @@ $(document).ready(function () {
             data:dataString,
             dataType:"html"
             }).done(function(data) {
+                console.log(data);
                 $("table tbody").html(data);
+                window.location.reload();
         });  
 
     });
