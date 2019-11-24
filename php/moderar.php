@@ -5,32 +5,44 @@
 
     session_start();
     $username=$_SESSION['root'];
-    $zone = $_POST['zone'];
-    $type_crime_id = $_POST['type_crime'];
+    $zone = (int)$_POST['zone'];
+    $type_crime = (int)$_POST['type_crime'];
     $dateSince = $_POST['dateSince'];
     $dateUntil = $_POST['dateUntil'];
     $parameters = [];
 
-    $sql_crime="SELECT * FROM crime INNER JOIN type_crime on crime.type_crime_id = type_crime.ID  INNER JOIN zones on crime.zone_id = zones.ID WHERE crime.status = 'Disponible'";
+    $sql_crime="SELECT * FROM crime INNER JOIN type_crime on type_crime_id = type_crime.ID  INNER JOIN zones on zone_id = zones.ID WHERE status = 'Disponible'";
     
     if (!empty($zone)) {
         $sql_crime.=" AND zone_id = :zone_id";
-        $parameters['zone_id'] = $zone_id;
+        $parameters['zone_id'] = $zone;
     };
 
     if (!empty($type_crime)) {
         $sql_crime.=" AND type_crime_id = :type_crime_id";
-        $parameters['type_crime_id'] = $type_crime_id;
+        $parameters['type_crime_id'] = $type_crime;
     }
 
+    if (!empty($dateSince) && !empty($dateUntil)) {
+        echo 'entra fecha';
+        $sql_crime.=" AND date_crime = BETWEEN :date_start AND :date_end";
+        $parameters['date_start'] = $dateSince;
+        $parameters['date_end'] = $dateUntil;
+    } else if (!empty($dateSince)){
+        $sql_crime.=" AND date_crime = :date_start";
+        $parameters['date_start'] = $dateSince;
+    } else if (!empty($dateUntil)){
+        $sql_crime.=" AND date_crime = :date_end";
+        $parameters['date_end'] = $dateUntil;
+    };
 
+    echo $sql_crime;
     $resultados=$conn->prepare($sql_crime);
 	$resultados->execute($parameters);
 	$registros=$resultados->fetchAll(PDO::FETCH_OBJ);
     $resultados->closeCursor();
 
-    $json = array('type' => 'json', 'result' => array());
-
+    // $json = array('type' => 'json', 'result' => array());
     foreach ($registros as $crime) {
         // $marker= array(
         //     'ID' => $crime->ID,

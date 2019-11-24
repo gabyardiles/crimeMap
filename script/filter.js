@@ -23,6 +23,7 @@ $(document).ready(function () {
       // send data
       // validate fields
     //   filter();
+    
   });
 
 
@@ -31,7 +32,8 @@ $(document).ready(function () {
           url: "../php/types_crime.php",
           type:"GET"
       }).done(function(data) {
-          $('#type_crime').html(data);
+        optionsTypeCrime = "<option value='0'>Seleccionar tipo de crimen</option>" + data;
+          $('#type_crime').html(optionsTypeCrime);
       });
   };
 
@@ -40,30 +42,9 @@ $(document).ready(function () {
           url: "../php/zones.php",
           type:"GET"
           }).done(function(data) {
-              $('#zone').html(data);
+            options = "<option value='0'>Seleccionar zona</option>" + data;
+              $('#zone').html(options);
       });
   };
-
-
-//   function filter() {
-//     console.log('entra al filtro');
-//     var zone = $('#zone').val();
-//     var type_crime = $('#type_crime').val();
-//     console.log($('#zone'));
-//     console.log(type_crime);
-
-
-//     var dataString = 'complete_query=AND zone_id=' + zone;
-//     $.ajax({
-//         url: "../php/mapa_delito.php",
-//         type:"POST",
-//         data:dataString,
-//         dataType:"html"                
-//     }).done(function(data) {
-//         console.log(data);
-//         alert('data', data);
-//         window.location.replace('../html/crimeMap.php');
-//     });
-// }
         
 });

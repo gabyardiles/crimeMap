@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var valueList = [];
-    
-    chargeCrimeList();
+
+    selectFilter();
 
     // charge <select>
     chargeZones();
@@ -77,7 +77,8 @@ $(document).ready(function () {
             url: "../php/types_crime.php",
             type:"GET"
         }).done(function(data) {
-            $('#type_crime').html(data);
+            optionsTypeCrime = "<option value='0'>Seleccionar tipo de crimen</option>" + data;
+            $('#type_crime').html(optionsTypeCrime);
         });
     };
     
@@ -86,48 +87,41 @@ $(document).ready(function () {
             url: "../php/zones.php",
             type:"GET"
             }).done(function(data) {
-                $('#zone_moderator').html(data);
+                options = "<option value='0'>Seleccionar zona</option>" + data;
+                $('#zone_moderator').html(options);
         });
     }
 
-    $('#submint_filter').on('click', function(){
+
+    function selectFilter() {
         var zone_moderator = $('#zone_moderator').val();
-        var type_crime = $('#type_crime').val();
-        var dateSince = $('#dateSince').val();
-        var dateUntil = $('#dateUntil').val();
-        
-
-        // if (zone_moderator != "" && zone_moderator != undefined) {
-        //     dataStringZone +=  'zone=' + zone_moderator;
-        // }
-        // if (type_crime != "" && type_crime != undefined) {
-        //     dataString +=  ',type_crime=' + type_crime;
-        // }
-        // if (dateSince != "" && dateSince != undefined) {
-        //     dataString +=  ',dateSince=' + dateSince;
-        // }
-        // if (dateUntil != "" && dateUntil != undefined) {
-        //     dataString +=  ',dateUntil=' + dateUntil;
-        // }
-
-        var dataString = {
-            "zone": zone_moderator,
-            "type_crime" : type_crime
-        };
-        $.ajax({
-            url: "../php/moderar.php",
-            type:"POST",
-            data:dataString,
-            dataType:"html"
-            }).done(function(data) {
-                // console.log('asfadsa',data);
-                // var myJsonString = JSON.parse(data);
-                // console.log(myJsonString);
-                $("table tbody").html(data);
-                
-                window.location.reload();
-        });  
-
+            var type_crime = $('#type_crime').val();
+            var dateSince = $('#dateSince').val();
+            var dateUntil = $('#dateUntil').val();
+            
+    
+            var dataString = {
+                "zone": zone_moderator,
+                "type_crime" : type_crime
+            };
+            $.ajax({
+                url: "../php/moderar.php",
+                type:"POST",
+                data:dataString,
+                dataType:"html"
+                }).done(function(data) {
+                    console.log('asfadsa',data);
+                    //var myJsonString = JSON.parse(data);
+                    // console.log(myJsonString);
+                    $("table tbody").html(data);
+                    
+                    // window.location.reload();
+            });  
+    };
+    
+    $('#submint_filter').on('click', function(){
+            selectFilter();
+            // window.location.reload();
     });
 
 });
