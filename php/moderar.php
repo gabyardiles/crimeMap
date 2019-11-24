@@ -36,7 +36,6 @@
         $parameters['date_end'] = $dateUntil;
     };
 
-    echo $sql_crime;
     $resultados=$conn->prepare($sql_crime);
 	$resultados->execute($parameters);
 	$registros=$resultados->fetchAll(PDO::FETCH_OBJ);
