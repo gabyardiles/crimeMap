@@ -1,0 +1,185 @@
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #444444;
+    font-size: 14px;
+  }
+
+.cp-login-box {
+    width: 32%;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,.23);
+    padding: 80px 30px 30px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    position: relative;
+    margin-top: 50px;
+    display: table;
+}
+
+.cp-login-box .user-pic {
+    background: #fff;
+    width: 110px;
+    height: 110px;
+    border-radius: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,.23);
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    top: -55px;
+}
+.cp-login-box .user-pic img {
+    width: 100%;
+    height: auto;
+    border: 5px solid #fff;
+    border-radius: 100%;
+}
+img {
+    vertical-align: middle;
+}
+img {
+    border: 0;
+}
+/*form*/
+.cp-login-form .input-group {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 10px 0;
+    width: 100%;
+}
+.cp-login-form ul li {
+    list-style: none;
+    margin-bottom: 20px;
+    clear: both;
+    width: 100%;
+    float: left;
+}
+.cp-login-form .material .material-input {
+    margin: 0px;
+    padding: 0px;
+}
+.cp-login-form .material .material-group {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+}
+.cp-login-form .forgot {
+    text-align: right;
+    font-style: italic;
+}
+.cp-login-form .or-sp {
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin: 10px 0 16px;
+}
+.cp-login-form ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.cp-social-login {
+    text-align: center;
+}
+.cp-login-form .cp-social-login li {
+    margin-bottom: 10px;
+}
+.cp-login-form .signup {
+    width: 100%;
+    float: left;
+    border-top: 1px solid #ccc;
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 17px;
+    font-style: italic;
+}
+.main-content {
+    width: 100%;
+    float: left;
+    padding: 15px 0;
+}
+.cp-social-login h3 {
+    margin: 0 0 7px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.cp-login-form .input-group-addon {
+    background: none;
+    border: 0px;
+    border-right: 1px solid #ccc !important;
+    padding: 0px;
+    text-align: center;
+    width: 45px;
+    color: #888888;
+    font-size: 15px;
+}
+.cp-login-form .input-group .form-control {
+    border: 0px;
+    box-shadow: none;
+    padding: 0 0 0 15px;
+    height: 21px;
+    line-height: 21px;
+    font-size: 14px;
+}
+.cp-login-form .btn-submit {
+    float: right;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.23);
+    border-radius: 2px;
+    height: 40px;
+    line-height: 38px;
+    padding: 0 15px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.cp-login-form .or-sp strong {
+    width: 40px;
+    height: 31px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.23);
+    display: inline-block;
+    color: #fff;
+    line-height: 31px;
+    position: relative;
+}
+.cp-login-form .or-sp strong:before {
+    position: absolute;
+    width: 70px;
+    height: 1px;
+    background: #ccc;
+    content: "";
+    left: -80px;
+    top: 15px;
+}
+.cp-login-form .or-sp strong:after {
+    position: absolute;
+    width: 70px;
+    height: 1px;
+    background: #ccc;
+    content: "";
+    right: -80px;
+    top: 15px;
+}
+.cp-login-form .material .material-bar:before, .cp-login-form .material .material-bar:after {
+    bottom: -10px;
+}
+.mb-4{margin-bottom:2.5rem!important;
+      padding-bottom: 5px;
+      }
+.mb-3{margin-bottom:1rem!important}
+.font-weight-normal{font-weight:400!important}
+
+footer{
+  margin-top: 20px;
+}
+/*Color theme*/
+.cp-login-form .btn-submit, .cp-login-form .or-sp strong {
+    background-color: #32aae1;
+}
+.cp-login-form .forgot a, .signup a{
+  color:#32aae1;
+}
