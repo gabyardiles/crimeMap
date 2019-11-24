@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var valueList = [];
-
+    
     chargeCrimeList();
 
     // charge <select>
@@ -70,7 +70,7 @@ $(document).ready(function () {
             }).done(function(data) {
                 $("table tbody").html(data);
         });
-    }
+    };
 
     function chargeTypes_crime() {
         $.ajax({
@@ -109,7 +109,6 @@ $(document).ready(function () {
         // if (dateUntil != "" && dateUntil != undefined) {
         //     dataString +=  ',dateUntil=' + dateUntil;
         // }
-                
 
         var dataString = {
             "zone": zone_moderator,
@@ -121,11 +120,15 @@ $(document).ready(function () {
             data:dataString,
             dataType:"html"
             }).done(function(data) {
-                console.log(data);
+                // console.log('asfadsa',data);
+                // var myJsonString = JSON.parse(data);
+                // console.log(myJsonString);
                 $("table tbody").html(data);
+                
                 window.location.reload();
         });  
 
     });
+
 });
 

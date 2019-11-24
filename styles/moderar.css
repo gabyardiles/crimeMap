@@ -57,3 +57,9 @@ div.table_responsive {
   background-color: skyblue;
   
 }
+
+#submint_filter {
+  margin-right: 50px;
+  margin-top: 20px;
+  padding: 10px;
+}
