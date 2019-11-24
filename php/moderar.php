@@ -8,7 +8,12 @@
     $zone = (int)$_POST['zone'];
     $type_crime = (int)$_POST['type_crime'];
     $dateSince = $_POST['dateSince'];
+    $timeSince = strtotime($dateSince);
+    $newformatSince = date('Y-m-d',$timeSince);
+
     $dateUntil = $_POST['dateUntil'];
+    $timeUntil = strtotime($dateUntil);
+    $newformatUntil = date('Y-m-d',$timeUntil);
     $parameters = [];
 
     $sql_crime="SELECT * FROM crime INNER JOIN type_crime on type_crime_id = type_crime.ID  INNER JOIN zones on zone_id = zones.ID WHERE status = 'Disponible'";
@@ -25,15 +30,15 @@
 
     if (!empty($dateSince) && !empty($dateUntil)) {
         echo 'entra fecha';
-        $sql_crime.=" AND date_crime = BETWEEN :date_start AND :date_end";
-        $parameters['date_start'] = $dateSince;
-        $parameters['date_end'] = $dateUntil;
+        $sql_crime.=" AND date_crime BETWEEN :date_start AND :date_end";
+        $parameters['date_start'] = $newformatSince;
+        $parameters['date_end'] = $newformatUntil;
     } else if (!empty($dateSince)){
         $sql_crime.=" AND date_crime = :date_start";
-        $parameters['date_start'] = $dateSince;
+        $parameters['date_start'] = $newformatSince;
     } else if (!empty($dateUntil)){
         $sql_crime.=" AND date_crime = :date_end";
-        $parameters['date_end'] = $dateUntil;
+        $parameters['date_end'] = $newformatUntil;
     };
 
     $resultados=$conn->prepare($sql_crime);

@@ -106,7 +106,8 @@
                 </ul>
                 <br>
                 <br>
-                <a id="button_filter" href="../html/search.html"><i class="fas fa-search"></i> Filtrar contenido</a>
+                <a id="button_filter" href="../html/search.html"><i class="fas fa-search" style="
+    margin-left: 25px;"></i> Filtrar contenido</a>
             </nav>
             <div id="content">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">

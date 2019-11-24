@@ -106,7 +106,9 @@ $(document).ready(function () {
     
             var dataString = {
                 "zone": zone_moderator,
-                "type_crime" : type_crime
+                "type_crime" : type_crime,
+                "dateSince": dateSince,
+                "dateUntil" : dateUntil
             };
             $.ajax({
                 url: "../php/moderar.php",
@@ -115,12 +117,8 @@ $(document).ready(function () {
                 dataType:"html"
                 }).done(function(data) {
                     console.log('asfadsa',data);
-                    //var myJsonString = JSON.parse(data);
-                    // console.log(myJsonString);
                     $("table tbody").html(data);
-                    
-                    // window.location.reload();
-            });  
+                });  
     };
     
     $('#submint_filter').on('click', function(){

@@ -7,16 +7,28 @@
     $username=$_SESSION['root'];
     $zone_id = (int)$_POST['zone'];
     $date_start = $_POST['date_crime_start'];
+    $timedate_start = strtotime($date_start);
+    $newformatDate_start = date('Y-m-d',$timedate_start);
     $date_end = $_POST['date_crime_end'];
+    $timedate_end = strtotime($date_end);
+    $newformatDate_end = date('Y-m-d',$timedate_end);
+    
+
     $type_crime = (int)$_POST['type_crime'];
     $parameters = [];
 
     $sql_crime="SELECT * FROM crime INNER JOIN type_crime on crime.type_crime_id = type_crime.ID WHERE status='Aprobado'";
     
     if (!empty($date_start) && !empty($date_end)) {
-        $sql_crime.=" AND date_crime = BETWEEN :date_start AND :date_end";
-        $parameters['date_start'] = $date_start;
-        $parameters['date_end'] = $date_end;
+        $sql_crime.=" AND date_crime BETWEEN :date_start AND :date_end";
+        $parameters['date_start'] = $newformatDate_start;
+        $parameters['date_end'] = $newformatDate_end;
+    } else if (!empty($date_start)) {
+        $sql_crime.=" AND date_crime = :date_start";
+        $parameters['date_start'] = $newformatDate_start;
+    } else if (!empty($date_end)){
+        $sql_crime.=" AND date_crime = :date_end";
+        $parameters['date_end'] = $newformatDate_end;
     };
 
     if (!empty($zone_id)) {
@@ -56,6 +68,6 @@
     array_push($geojson['features'], $marker['features']);
     }
     echo json_encode($geojson);
-    // header('Location: ../html/crimeMap.php');
+    header('Location: ../html/crimeMap.php?varlistFilter=$geojson');
     exit();
 ?>
