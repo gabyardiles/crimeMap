@@ -262,7 +262,7 @@ $('#modalLogOutForm').on('click', function() {
 
 function closeSessionUser() {
   $.ajax({
-    url: "../php/login.php",
+    url: "../php/LogOut.php",
     type:"GET"
   }).done(function(data) {
       console.log();
