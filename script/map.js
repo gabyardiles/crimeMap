@@ -222,7 +222,7 @@ function chargeOptionsZones() {
       dataType:"html"
     }).done(function(data) {
         var myJsonString = JSON.parse(data);
-        window.location.href = "../html/crimeMap.php?name=" + myJsonString[0].nombre + "&email=" + myJsonString[0].email;
+        window.location.href = "../html/crimeMap.php?name=" + myJsonString[0].nombre + "&email=" + myJsonString[0].email + "&id=" + myJsonString[0].type_user_id;
         // if (myJsonString.lenght > 0) {
         //   console.log(myJsonString.lenght);
         //   window.location.href = "../html/crimeMap.php?name=" + myJsonString[0].nombre + "&email=" + myJsonString[0].email;

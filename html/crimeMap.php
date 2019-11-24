@@ -126,7 +126,8 @@
                                 <?php
                                 $name = $_GET['name'];
                                 $email = $_GET['email'];
-                                if ($name != "" && $email != "") {
+                                $type_user = $_GET['id'];
+                                if ($name != "" && $email != "" && $type_user == 2) {
                                     echo "<li class='nav-item'>
                                     <a class='nav-link' href='../html/moderar.html'>Moderar</a>
                                 </li>";
