@@ -57,10 +57,14 @@ $(document).ready(function () {
             data:dataString,
             dataType:"html"                
         }).done(function(data) {
-            alert('Se cambio el estado de los crimenes seleccionados de forma exitosa');
-            window.location.reload();
+            $('.modal-body').html('Se cambio el estado de los crimenes seleccionados de forma exitosa'); 
+            $('#empModal').modal('show');
         });
-    }
+    };
+    
+    $('#closeModalSucces').on('click', function(){
+        window.location.reload();
+    });
 
     // charge list
     function chargeCrimeList() {
