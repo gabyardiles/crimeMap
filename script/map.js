@@ -14,23 +14,21 @@ $(document).ready(function () {
         console.log(myJsonString.features);
         // Map
         mapboxgl.accessToken = 'pk.eyJ1IjoiZ2FicmllbGFhcmRpbGVzIiwiYSI6ImNrMndwM2h0MzBmNjgzbHF3OWtodXgzeTcifQ.J7akpCRoHz6s2Dl2W6gcJA';
-      
-        myJsonString.features.forEach(function(marker) {
-          var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-58.392321, -34.737410],
-            zoom: 10
-          });
+        var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v11',
+          center: [-58.392321, -34.737410],
+          zoom: 10,
           
-          map.addControl(new mapboxgl.GeolocateControl({
-            positionOptions: {
-                enableHighAccuracy: true
-            },
-            trackUserLocation: true
-          }));
-
-          var size = 200;
+        });
+        map.addControl(new mapboxgl.GeolocateControl({
+          positionOptions: {
+              enableHighAccuracy: true
+          },
+          trackUserLocation: true
+        }));
+        map.addControl(new mapboxgl.NavigationControl());
+        var size = 200;
           
           var pulsingDot = {
             width: size,
@@ -71,27 +69,25 @@ $(document).ready(function () {
             return true;
           }
           };
+        map.on('load', function() {
+          map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+          map.addLayer({
+            "id": "points",
+            "type": "symbol",
+            "source": {
+            "type": "geojson",
+            "data": myJsonString
+            },
+            "layout": {
+            "icon-image": "pulsing-dot",
+            "text-field": ["get", "title"],
+            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 0.6],
+            "text-anchor": "top"
+            }
+          });
+      });
 
-          map.on('load', function() {
-            map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
-            map.addLayer({
-              "id": "points",
-              "type": "symbol",
-              "source": {
-              "type": "geojson",
-              "data": myJsonString
-              },
-              "layout": {
-              "icon-image": "pulsing-dot",
-              "text-field": ["get", "title"],
-              "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-              "text-offset": [0, 0.6],
-              "text-anchor": "top"
-              }
-            });
-        });
-
-        });
   });
   };
 
