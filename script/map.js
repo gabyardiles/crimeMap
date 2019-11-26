@@ -14,21 +14,21 @@ $(document).ready(function () {
         console.log(myJsonString.features);
         // Map
         mapboxgl.accessToken = 'pk.eyJ1IjoiZ2FicmllbGFhcmRpbGVzIiwiYSI6ImNrMndwM2h0MzBmNjgzbHF3OWtodXgzeTcifQ.J7akpCRoHz6s2Dl2W6gcJA';
-      
-        myJsonString.features.forEach(function(marker) {
-          var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-58.392321, -34.737410],
-            zoom: 10
-          });
+        var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v11',
+          center: [-58.392321, -34.737410],
+          zoom: 10,
           
-          map.addControl(new mapboxgl.GeolocateControl({
-            positionOptions: {
-                enableHighAccuracy: true
-            },
-            trackUserLocation: true
-          }));
+        });
+        map.addControl(new mapboxgl.GeolocateControl({
+          positionOptions: {
+              enableHighAccuracy: true
+          },
+          trackUserLocation: true
+        }));
+        
+        myJsonString.features.forEach(function(marker) {
 
           var size = 200;
           
