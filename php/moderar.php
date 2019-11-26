@@ -34,10 +34,10 @@
         $parameters['date_start'] = $newformatSince;
         $parameters['date_end'] = $newformatUntil;
     } else if (!empty($dateSince)){
-        $sql_crime.=" AND date_crime = :date_start";
+        $sql_crime.=" AND date_crime >= :date_start";
         $parameters['date_start'] = $newformatSince;
     } else if (!empty($dateUntil)){
-        $sql_crime.=" AND date_crime = :date_end";
+        $sql_crime.=" AND date_crime <= :date_end";
         $parameters['date_end'] = $newformatUntil;
     };
 
@@ -46,18 +46,7 @@
 	$registros=$resultados->fetchAll(PDO::FETCH_OBJ);
     $resultados->closeCursor();
 
-    // $json = array('type' => 'json', 'result' => array());
     foreach ($registros as $crime) {
-        // $marker= array(
-        //     'ID' => $crime->ID,
-        //     'crimen_Tipo_de_crimen' => $crime->type_crime_description,
-        //     'Descripcion' => $crime->crime_description,
-        //     'Fecha_delito' => $crime->date_crime,
-        //     'Hora_delito'=> $crime->hour_crime,
-        //     'Zona' => $crime->zone_description
-        // );
-        // array_push($json,$marker['result']);
-        // echo json_encode($json);
         echo "<tr><td><div class='custom-control custom-checkbox'><input type='checkbox' name='crimes[]' class='custom-control-input' id=$crime->ID_crime><label class='custom-control-label' for=$crime->ID_crime></label></div></td><td>$crime->ID_crime</td><td>$crime->type_crime_description</td><td>$crime->crime_description</td><td class='d-none d-lg-table-cell'>$crime->date_crime $crime->hour_crime</td><td class='d-none d-lg-table-cell'>$crime->zone_description</td></tr>";
     }
     exit();

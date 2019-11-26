@@ -17,15 +17,18 @@ $(document).ready(function () {
 
     // validations input
     function validateFields(elements) {
+        var success = false;
         for (var i = 0; i < elements.length; i++) {
             elements[i].oninvalid = function (e) {
                 e.target.setCustomValidity("");
                 if (!e.target.validity.valid) {
                     switch (e.srcElement.id) {
                         case "address":
+                            success = true;
                             e.target.setCustomValidity("El campo dirección no puede estar vacio");
                             break;
                         case "descriptionCrime":
+                            success = true;
                             e.target.setCustomValidity("El campo descripción no puede estar vacio");
                             break;
                     }
@@ -50,10 +53,43 @@ $(document).ready(function () {
     });
 
     // action button send
-    $('#submit').on('click', function (e) {
-        // send data
-        // validate fields
+    $('#form_new_crime').submit(function () {
+        console.log('accede a submit:form');
+        var address = $('#address').val();
+        var date = $('#date').val();
+        var time = $('#time').val();
+        var type_crime = $('#type_crime').val();
+        var zone = $('#zone').val();
+        var comments = $('#comments').val();
+        var dataString = {
+            "address": address,
+            "date": date,
+            "time": time,
+            "type_crime" : type_crime,
+            "zone": zone,
+            "comments": comments
+        };
+        $.ajax({
+            url: "../php/new_crime.php",
+            type:"POST",
+            data:dataString,
+            dataType:"html"
+            }).done(function(data) {
+                console.log(data);
+                if (!success) {
+                    $('.modal-body').html('Se guardó el nuevo crimen de forma exitosa'); 
+                     $('#empModal').modal('show');
+                } else {
+                    $('.modal-body').html('Faltan completar campos, por favor reintente'); 
+                    $('#empModal').modal('show');
+                }
+            });
     });
+
+    $('#closeModalSucces').on('click', function(){
+        window.location('../html/crimeMap.php');
+    });
+
 
 
     function chargeTypes_crime() {

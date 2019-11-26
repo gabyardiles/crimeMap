@@ -7,7 +7,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="../script/map.js"></script>
+        <script type="text/javascript">
+            var url = new URL(window.location.href);
+            var zone_filter = url.searchParams.get("zone")
+            var type_crime_filter = url.searchParams.get("type_crime")
+            var date_start_filter = url.searchParams.get("date_start")
+            var date_end_filter = url.searchParams.get("date_end")
+        </script>
+        <script type="text/javascript" src="../script/map.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <!--maps script-->

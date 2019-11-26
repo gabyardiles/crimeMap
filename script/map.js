@@ -1,14 +1,28 @@
 $(document).ready(function () {
 
+  console.log('zone', zone_filter);
+  console.log('type_crime', type_crime_filter);
+  console.log('date_start', date_start_filter);
+  console.log('date_end', date_end_filter);
+  
   chargeTypeCrimeMap()
 
   validateFormLogin()
 
   // Map
   function chargeTypeCrimeMap() {
+    let dataString = {
+      "zone_filter": zone_filter, 
+      "type_crime": type_crime_filter,
+      "date_start": date_start_filter,
+      "date_end": date_end_filter 
+    };
+
     $.ajax({
       url: "../php/mapa_delito.php",
-      type:"GET"
+      type:"POST",
+      data: dataString,
+      dataType:"html"
       }).done(function(data) {
         var myJsonString = JSON.parse(data);
         console.log(myJsonString.features);
