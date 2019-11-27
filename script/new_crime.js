@@ -52,45 +52,6 @@ $(document).ready(function () {
         // send data
     });
 
-    // action button send
-    $('#form_new_crime').submit(function () {
-        console.log('accede a submit:form');
-        var address = $('#address').val();
-        var date = $('#date').val();
-        var time = $('#time').val();
-        var type_crime = $('#type_crime').val();
-        var zone = $('#zone').val();
-        var comments = $('#comments').val();
-        var dataString = {
-            "address": address,
-            "date": date,
-            "time": time,
-            "type_crime" : type_crime,
-            "zone": zone,
-            "comments": comments
-        };
-        $.ajax({
-            url: "../php/new_crime.php",
-            type:"POST",
-            data:dataString,
-            dataType:"html"
-            }).done(function(data) {
-                console.log(data);
-                if (!success) {
-                    $('.modal-body').html('Se guardó el nuevo crimen de forma exitosa'); 
-                     $('#empModal').modal('show');
-                } else {
-                    $('.modal-body').html('Faltan completar campos, por favor reintente'); 
-                    $('#empModal').modal('show');
-                }
-            });
-    });
-
-    $('#closeModalSucces').on('click', function(){
-        window.location('../html/crimeMap.php');
-    });
-
-
 
     function chargeTypes_crime() {
         $.ajax({
