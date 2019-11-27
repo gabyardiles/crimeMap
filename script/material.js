@@ -1,6 +1,7 @@
 $(document).ready(function () {
     var valueList = [];
-
+    var offset = 0;
+    
     selectFilter();
 
     // charge <select>
@@ -57,7 +58,7 @@ $(document).ready(function () {
             data:dataString,
             dataType:"html"                
         }).done(function(data) {
-            $('.modal-body').html('Se cambio el estado de los crimenes seleccionados de forma exitosa'); 
+            $('.modal-body').html('Se cambió el estado de los crímenes seleccionados de forma exitosa'); 
             $('#empModal').modal('show');
         });
     };
@@ -65,16 +66,6 @@ $(document).ready(function () {
     $('#closeModalSucces').on('click', function(){
         window.location.reload();
     });
-
-    // charge list
-    function chargeCrimeList() {
-        $.ajax({
-            url: "../php/moderar.php",
-            type:"GET"
-            }).done(function(data) {
-                $("table tbody").html(data);
-        });
-    };
 
     function chargeTypes_crime() {
         $.ajax({
@@ -99,16 +90,15 @@ $(document).ready(function () {
 
     function selectFilter() {
         var zone_moderator = $('#zone_moderator').val();
-            var type_crime = $('#type_crime').val();
-            var dateSince = $('#dateSince').val();
-            var dateUntil = $('#dateUntil').val();
-            
-    
+        var type_crime = $('#type_crime').val();
+        var dateSince = $('#dateSince').val();
+        var dateUntil = $('#dateUntil').val();
             var dataString = {
                 "zone": zone_moderator,
                 "type_crime" : type_crime,
                 "dateSince": dateSince,
-                "dateUntil" : dateUntil
+                "dateUntil" : dateUntil,
+                "offset": offset
             };
             $.ajax({
                 url: "../php/moderar.php",
@@ -116,14 +106,29 @@ $(document).ready(function () {
                 data:dataString,
                 dataType:"html"
                 }).done(function(data) {
-                    console.log('asfadsa',data);
                     $("table tbody").html(data);
                 });  
     };
+
+     $('#avanzar').on('click', function(){
+        var totalRows = $('table tbody').find('tr').length;
+                if (totalRows == 10) {
+                    offset += 10;
+                    selectFilter()
+                } else {
+                    offset = offset;
+                }
+    });
     
+    $('#retroceder').on('click', function(){
+        if (offset != 0) {
+            offset -= 10;
+            selectFilter()
+        }
+    });
     $('#submint_filter').on('click', function(){
             selectFilter();
-            // window.location.reload();
+
     });
 
 });

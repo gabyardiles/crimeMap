@@ -14,6 +14,9 @@
     $dateUntil = $_POST['dateUntil'];
     $timeUntil = strtotime($dateUntil);
     $newformatUntil = date('Y-m-d',$timeUntil);
+
+    $offset = $_POST['offset'];
+
     $parameters = [];
 
     $sql_crime="SELECT * FROM crime INNER JOIN type_crime on type_crime_id = type_crime.ID  INNER JOIN zones on zone_id = zones.ID WHERE status = 'Disponible'";
@@ -41,9 +44,10 @@
         $parameters['date_end'] = $newformatUntil;
     };
 
+    $sql_crime .= ' limit 10 offset '.$offset;
     $resultados=$conn->prepare($sql_crime);
 	$resultados->execute($parameters);
-	$registros=$resultados->fetchAll(PDO::FETCH_OBJ);
+    $registros=$resultados->fetchAll(PDO::FETCH_OBJ);
     $resultados->closeCursor();
 
     foreach ($registros as $crime) {
