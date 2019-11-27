@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-11-2019 a las 14:50:11
+-- Tiempo de generación: 27-11-2019 a las 16:15:55
 -- Versión del servidor: 8.0.18
 -- Versión de PHP: 7.1.32
 
@@ -35,6 +35,17 @@ CREATE TABLE `contact` (
   `description_contact` varchar(10000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Volcado de datos para la tabla `contact`
+--
+
+INSERT INTO `contact` (`ID`, `complete_name`, `email_contact`, `description_contact`) VALUES
+(1, 'nombreasdgf', 'ardilesgraciela@gmail.com', 'frwegft'),
+(2, 'nombreasdgf', 'ardilesgraciela@gmail.com', 'frwegft'),
+(3, 'ardilesddd', 'adsa@gmail.com', 'afdeqrgtrczc prueba form contacto'),
+(4, 'ardilesddd', 'adsa@gmail.com', 'afdeqrgtrczc prueba form contacto'),
+(5, 'prueba 34r3', 'qwe@gmail.com', 'dslkfgjfshnklalñcls,dmfñkjgldslkfgjfshnklalñcls,dmfñkjgldslkfgjfshnklalñcls,dmfñkjgldslkfgjfshnklalñcls,dmfñkjgldslkfgjfshnklalñcls,dmfñkjgldslkfgjfshnklalñcls,dmfñkjgldslkfgjfshnklalñcls,dmfñkjgl');
+
 -- --------------------------------------------------------
 
 --
@@ -46,8 +57,8 @@ CREATE TABLE `crime` (
   `type_crime_id` int(11) NOT NULL,
   `crime_description` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `date_register` date DEFAULT NULL,
-  `latitude` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `longitude` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `latitude` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT '-34.7895235',
+  `longitude` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT '-58.5253366,17',
   `date_crime` date DEFAULT NULL,
   `hour_crime` time DEFAULT NULL,
   `zone_id` int(11) NOT NULL,
@@ -748,7 +759,8 @@ INSERT INTO `crime` (`ID_crime`, `type_crime_id`, `crime_description`, `date_reg
 (3006, 5, 'Delito 3006', '2019-12-25', '-34.777764', '-58.381572', '2019-12-25', '11:15:00', 12, NULL, 'Aprobado'),
 (3007, 1, 'Delito 3007', '2019-11-03', '-34.779501', '-58.381862', '2019-11-03', '11:15:00', 12, NULL, 'Aprobado'),
 (3008, 1, 'Delito 3008', '2019-10-19', '-34.771868', '-58.383470', '2019-10-19', '11:15:00', 12, NULL, 'Aprobado'),
-(3009, 3, 'sdfghj', '2019-11-27', NULL, NULL, '2019-11-07', '00:00:00', 9, 'fgh', 'Disponible');
+(3009, 3, 'sdfghj', '2019-11-27', '-34.7895235', '-58.5253313,17', '2019-11-07', '00:00:00', 4, 'fgh', 'Aprobado'),
+(3010, 4, 'edqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrfedqrf', '2019-11-27', '-34.7895235', '-58.5253313,17', '2019-11-27', '00:40:00', 4, 'Reconquista 151', 'Aprobado');
 
 -- --------------------------------------------------------
 
@@ -902,13 +914,13 @@ ALTER TABLE `zones`
 -- AUTO_INCREMENT de la tabla `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `crime`
 --
 ALTER TABLE `crime`
-  MODIFY `ID_crime` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3010;
+  MODIFY `ID_crime` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3011;
 
 --
 -- AUTO_INCREMENT de la tabla `type_crime`
