@@ -21,7 +21,7 @@
 
         echo ("<script LANGUAGE='JavaScript'>
     window.alert('Se agregó correctamente el nuevo crimen');
-    window.location.href='../html/crimeMap.php';
+    window.location.href='../php/crimeMap.php';
      </script>");
 
 

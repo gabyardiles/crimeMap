@@ -102,10 +102,10 @@
                             </li>
                         </ul>
                      <li>
-                        <a href="./utils_munber.html"><i class="fas fa-mobile-alt"></i> Números útiles</a>
+                        <a href="../html/utils_munber.html"><i class="fas fa-mobile-alt"></i> Números útiles</a>
                     </li>
                     <li>
-                        <a href="./contact.html"><i class="far fa-address-book"></i> Contacto</a>
+                        <a href="../html/contact.html"><i class="far fa-address-book"></i> Contacto</a>
                     </li>
                     <li>
                         <a href="../html/about_us.html"><i class="far fa-question-circle"></i> Acerca de</a>

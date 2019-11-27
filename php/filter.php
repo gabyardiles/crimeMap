@@ -17,7 +17,7 @@
     $parameters = [];
 
     
-    $redirectUrl = '../html/crimeMap.php?';
+    $redirectUrl = '../php/crimeMap.php?';
     if (!empty($zone_id)) {
         $redirectUrl .= 'zone='.$zone_id;
     };

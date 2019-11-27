@@ -232,14 +232,7 @@ function chargeOptionsZones() {
       dataType:"html"
     }).done(function(data) {
         var myJsonString = JSON.parse(data);
-        window.location.href = "../html/crimeMap.php?name=" + myJsonString[0].nombre + "&email=" + myJsonString[0].email + "&id=" + myJsonString[0].type_user_id;
-        // if (myJsonString.lenght > 0) {
-        //   console.log(myJsonString.lenght);
-        //   window.location.href = "../html/crimeMap.php?name=" + myJsonString[0].nombre + "&email=" + myJsonString[0].email;
-        // } else {
-        //   alert('El email o la password son incorrectas por favor reintente');
-        //   window.location.reload();
-        // }
+        window.location.href = "../php/crimeMap.php?name=" + myJsonString[0].nombre + "&email=" + myJsonString[0].email + "&id=" + myJsonString[0].type_user_id;
       });
   };
 
@@ -276,7 +269,7 @@ function closeSessionUser() {
     type:"GET"
   }).done(function(data) {
       console.log();
-      window.location.href = "../html/crimeMap.php";
+      window.location.href = "../php/crimeMap.php";
     });
 };
 });
