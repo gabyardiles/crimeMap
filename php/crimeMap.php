@@ -113,8 +113,14 @@
                 </ul>
                 <br>
                 <br>
-                <a id="button_filter" href="../html/search.html"><i class="fas fa-search" style="
-    margin-left: 25px;"></i> Filtrar contenido</a>
+                <div>
+                    <a id="button_filter" href="../html/search.html"><i class="fas fa-search" style="margin-left: 25px;"></i> Filtrar contenido</a>
+                </div>
+                <br>
+                <div>
+                    <a style="margin-left: 35px;" href="../html/new_crime.html">Nuevo delito</a>
+                </div>
+                <br>
             </nav>
             <div id="content">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -128,9 +134,6 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="nav navbar-nav ml-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="../html/new_crime.html">Nuevo delito</a>
-                                </li>
                                 <?php
                                 $name = $_GET['name'];
                                 $email = $_GET['email'];
@@ -141,9 +144,6 @@
                                 </li>";
                                 }
                                 ?>
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link" href="../html/profile.php">Perfil</a>
-                                </li> -->
                             </ul>
                         </div>
                     </div>
