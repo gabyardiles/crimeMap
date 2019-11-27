@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    var elementsInput = document.getElementsByTagName("INPUT");
-    var elementsTA = document.getElementsByTagName("TEXTAREA");
+    elementsInput = document.getElementsByTagName("INPUT");
+    elementsTA = document.getElementsByTagName("TEXTAREA");
 
     validateFields(elementsInput)
     validateFields(elementsTA)
@@ -15,7 +15,7 @@ $(document).ready(function () {
                             e.target.setCustomValidity("El campo nombre no puede estar vacio");
                             break;
                         case "email":
-                            e.target.setCustomValidity("El campo email no puede estar vacio");
+                            // e.target.setCustomValidity("El campo email no puede estar vacio");
                             break;
                         case "comments":
                         e.target.setCustomValidity("El campo cometarios no puede estar vacio");
